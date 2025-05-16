@@ -157,6 +157,10 @@
                     "name": "Laser Line"
                 },
                 {
+                    "tag": "M5StickCPlus_8x64",
+                    "name": "M5StickCPlus_8x64"
+                },
+                {
                     "tag": "spectrum",
                     "name": "Spectrum"
                 },

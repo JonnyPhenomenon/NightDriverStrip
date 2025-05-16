@@ -42,7 +42,7 @@
 #include "globals.h"
 #include <string.h>
 #include <ledstripeffect.h>
-#include <ledmatrixgfx.h>
+// #include <ledmatrixgfx.h>
 #include <ArduinoJson.h>
 #include "systemcontainer.h"
 #include <map>
@@ -52,22 +52,22 @@
 
 // The GIF files are embedded within the flash image, and we need to tell the linker where they are
 
-extern const uint8_t colorsphere_start[]     asm("_binary_assets_gif_colorsphere_gif_start");
-extern const uint8_t colorsphere_end[]       asm("_binary_assets_gif_colorsphere_gif_end");
-extern const uint8_t atomic_start[]          asm("_binary_assets_gif_atomic_gif_start");
-extern const uint8_t atomic_end[]            asm("_binary_assets_gif_atomic_gif_end");
-extern const uint8_t threerings_start[]      asm("_binary_assets_gif_threerings_gif_start");
-extern const uint8_t threerings_end[]        asm("_binary_assets_gif_threerings_gif_end");
+// extern const uint8_t colorsphere_start[]     asm("_binary_assets_gif_colorsphere_gif_start");
+// extern const uint8_t colorsphere_end[]       asm("_binary_assets_gif_colorsphere_gif_end");
+// extern const uint8_t atomic_start[]          asm("_binary_assets_gif_atomic_gif_start");
+// extern const uint8_t atomic_end[]            asm("_binary_assets_gif_atomic_gif_end");
+// extern const uint8_t threerings_start[]      asm("_binary_assets_gif_threerings_gif_start");
+// extern const uint8_t threerings_end[]        asm("_binary_assets_gif_threerings_gif_end");
 extern const uint8_t pacman_start[]          asm("_binary_assets_gif_pacman_gif_start");
 extern const uint8_t pacman_end[]            asm("_binary_assets_gif_pacman_gif_end");
-extern const uint8_t banana_start[]          asm("_binary_assets_gif_banana_gif_start");
-extern const uint8_t banana_end[]            asm("_binary_assets_gif_banana_gif_end");
-extern const uint8_t nyancat_start[]         asm("_binary_assets_gif_nyancat_gif_start");
-extern const uint8_t nyancat_end[]           asm("_binary_assets_gif_nyancat_gif_end");
-extern const uint8_t tesseract_start[]       asm("_binary_assets_gif_tesseract_gif_start");
-extern const uint8_t tesseract_end[]         asm("_binary_assets_gif_tesseract_gif_end");
-extern const uint8_t firelog_start[]         asm("_binary_assets_gif_firelog_gif_start");
-extern const uint8_t firelog_end[]           asm("_binary_assets_gif_firelog_gif_end");
+// extern const uint8_t banana_start[]          asm("_binary_assets_gif_banana_gif_start");
+// extern const uint8_t banana_end[]            asm("_binary_assets_gif_banana_gif_end");
+// extern const uint8_t nyancat_start[]         asm("_binary_assets_gif_nyancat_gif_start");
+// extern const uint8_t nyancat_end[]           asm("_binary_assets_gif_nyancat_gif_end");
+// extern const uint8_t tesseract_start[]       asm("_binary_assets_gif_tesseract_gif_start");
+// extern const uint8_t tesseract_end[]         asm("_binary_assets_gif_tesseract_gif_end");
+// extern const uint8_t firelog_start[]         asm("_binary_assets_gif_firelog_gif_start");
+// extern const uint8_t firelog_end[]           asm("_binary_assets_gif_firelog_gif_end");
 
 // AnimatedGIFs
 //
@@ -103,14 +103,14 @@ struct GIFInfo : public EmbeddedFile
 static const std::map<GIFIdentifier, const GIFInfo, std::less<GIFIdentifier>, const psram_allocator<std::pair<GIFIdentifier, const GIFInfo>>> AnimatedGIFs =
 {
     // Banana has 8 frames.  Most music is around 120BPM, so we need to play each frame for 1/15th of a second to somewhat align with a typical beat
-    { GIFIdentifier::Banana,       GIFInfo(banana_start,      banana_end,      32, 32, 10 ) },      //  4 KB
-    { GIFIdentifier::Nyancat,      GIFInfo(nyancat_start,     nyancat_end,     64, 32, 18 ) },      // 20 KB
+    // { GIFIdentifier::Banana,       GIFInfo(banana_start,      banana_end,      32, 32, 10 ) },      //  4 KB
+    // { GIFIdentifier::Nyancat,      GIFInfo(nyancat_start,     nyancat_end,     64, 32, 18 ) },      // 20 KB
     { GIFIdentifier::Pacman,       GIFInfo(pacman_start,      pacman_end,      64, 12, 20 ) },      // 36 KB
-    { GIFIdentifier::Atomic,       GIFInfo(atomic_start,      atomic_end,      32, 32, 60 ) },      // 21 KB
-    { GIFIdentifier::ColorSphere,  GIFInfo(colorsphere_start, colorsphere_end, 32, 32, 16 ) },      // 52 KB
-    { GIFIdentifier::ThreeRings,   GIFInfo(threerings_start,  threerings_end,  64, 32, 24 ) },      //  9 KB
-    { GIFIdentifier::Tesseract,    GIFInfo(tesseract_start,   tesseract_end,   40, 32, 40 ) },      // 24 KB
-    { GIFIdentifier::Firelog,      GIFInfo(firelog_start,     firelog_end,     64, 32, 16 ) },      // 24 KB
+    // { GIFIdentifier::Atomic,       GIFInfo(atomic_start,      atomic_end,      32, 32, 60 ) },      // 21 KB
+    // { GIFIdentifier::ColorSphere,  GIFInfo(colorsphere_start, colorsphere_end, 32, 32, 16 ) },      // 52 KB
+    // { GIFIdentifier::ThreeRings,   GIFInfo(threerings_start,  threerings_end,  64, 32, 24 ) },      //  9 KB
+    // { GIFIdentifier::Tesseract,    GIFInfo(tesseract_start,   tesseract_end,   40, 32, 40 ) },      // 24 KB
+    // { GIFIdentifier::Firelog,      GIFInfo(firelog_start,     firelog_end,     64, 32, 16 ) },      // 24 KB
 };
 
 // The decoder needs us to track some state, but there's only one instance of the decoder, and

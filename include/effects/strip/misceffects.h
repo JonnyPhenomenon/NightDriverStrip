@@ -281,7 +281,7 @@ protected:
     }
 };
 
-#if USE_HUB75
+#if USE_HUB750
 
 // SplashLogoEffect
 //

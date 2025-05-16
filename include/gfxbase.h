@@ -290,8 +290,9 @@ public:
     #elif HELMET
         #define XY(x, y) xy(x, MATRIX_HEIGHT - 1 - y)           // Invert the Y axis for the helmet display
     #else
-        #define XY(x, y) xy(x, y)
+        #define XY(x, y) (MATRIX_WIDTH, MATRIX_HEIGHT)
     #endif
+
 
     virtual CRGB getPixel(int16_t x, int16_t y) const
     {

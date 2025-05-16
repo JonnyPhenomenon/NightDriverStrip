@@ -964,6 +964,11 @@ extern RemoteDebug Debug;           // Let everyone in the project know about it
     #endif
     #define DEFAULT_EFFECT_INTERVAL     (1000*60*60*24)
 
+#elif M5StickCPlus_8x64
+    #ifndef PROJECT_NAME
+        #define PROJECT_NAME                    "M5StickCPlus 8x64"
+    #endif
+
 #elif SPECTRUM
 
     // This project is set up as a 48x16 matrix of 16x16 WS2812B panels such as: https://amzn.to/3ABs5DK
@@ -981,7 +986,7 @@ extern RemoteDebug Debug;           // Let everyone in the project know about it
     #define ENABLE_WEBSERVER                1   // Turn on the internal webserver
     #define ENABLE_NTP                      1   // Set the clock from the web
     #define ENABLE_OTA                      0   // Accept over the air flash updates
-    #define ENABLE_REMOTE                   1   // IR Remote Control
+    #define ENABLE_REMOTE                   0   // IR Remote Control
     #define ENABLE_AUDIO                    1   // Listen for audio from the microphone and process it
 
     #if USE_PSRAM
@@ -1014,8 +1019,8 @@ extern RemoteDebug Debug;           // Let everyone in the project know about it
     #define NUM_CHANNELS                1
     #define RING_SIZE_0                 24
     #define BONUS_PIXELS                0
-    #define MATRIX_WIDTH                48
-    #define MATRIX_HEIGHT               16
+    #define MATRIX_WIDTH                64
+    #define MATRIX_HEIGHT               8
     #define NUM_FANS                    MATRIX_WIDTH
     #define FAN_SIZE                    MATRIX_HEIGHT
     #define NUM_BANDS                   16
@@ -1241,8 +1246,8 @@ extern RemoteDebug Debug;           // Let everyone in the project know about it
     // This is a simple demo configuration used when no other project is defined; it's only purpose is
     // to serve as a build to be run for [all-deps]
 
-    #define MATRIX_WIDTH            144
-    #define MATRIX_HEIGHT           8
+    // #define MATRIX_WIDTH            144
+    // #define MATRIX_HEIGHT           8
     #define NUM_LEDS                (MATRIX_WIDTH*MATRIX_HEIGHT)
     #define NUM_CHANNELS            8
     #define NUM_RINGS               5
@@ -1256,14 +1261,14 @@ extern RemoteDebug Debug;           // Let everyone in the project know about it
     #define INCOMING_WIFI_ENABLED   1   // Accepting incoming color data and commands
     #define TIME_BEFORE_LOCAL       1   // How many seconds before the lamp times out and shows local content
     #define ENABLE_NTP              1   // Set the clock from the web
-    #define ENABLE_OTA              1
+    #define ENABLE_OTA              0
     #define ENABLE_WEBSERVER        1   // Turn on the internal webserver
 
-    #define LED_PIN0         5
+    #define LED_PIN0        32
     #define LED_PIN1        16
     #define LED_PIN2        17
     #define LED_PIN3        18
-    #define LED_PIN4        32
+    #define LED_PIN4        5
     #define LED_PIN5        33
     #define LED_PIN6        23
     #define LED_PIN7        22

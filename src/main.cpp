@@ -519,7 +519,7 @@ void setup()
     });
 
     // Show splash effect on matrix
-    #if USE_HUB75
+    #if USE_HUB750
         debugI("Initializing splash effect manager...");
         InitSplashEffectManager();
     #endif
